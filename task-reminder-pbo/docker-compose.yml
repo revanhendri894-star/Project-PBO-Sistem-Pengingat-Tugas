@@ -1,0 +1,14 @@
+services:
+  task-reminder:
+    build: .
+    image: task-reminder-pbo:latest
+    container_name: task-reminder-pbo
+    stdin_open: true
+    tty: true
+    environment:
+      - TASK_DATA_PATH=/app/data/tasks.csv
+    volumes:
+      - task-data:/app/data
+
+volumes:
+  task-data:
